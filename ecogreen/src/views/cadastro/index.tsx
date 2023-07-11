@@ -1,4 +1,4 @@
-import Button from "../../components/button/Button"
+import Button from "../../components/button"
 import Input from "../../components/input/index"
 import "../cadastro/index.css"
 
@@ -13,7 +13,7 @@ const Cadastro = () => {
                 <Input placeholder={"Senha"} width={369} height={62} />
                 <Input placeholder={"Confirme a senha"} width={369} height={62} />
             </div>
-            <Button name={"Cadastre-se"} />
+            <Button width={369} height={50} name={"Cadastre-se"} />
             <h4>Já possui uma conta? <a href="/login">Entre aqui!</a> </h4>
         </div>
     )
