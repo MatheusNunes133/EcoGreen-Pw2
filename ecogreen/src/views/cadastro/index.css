@@ -26,6 +26,24 @@ h1 {
 }
 
 a {
-    color: #00FF00;
-    text-decoration: none;
+    color: inherit;
+}
+
+/* link que ainda não foi visitado */
+a:link {
+    color: green;
+}
+
+/* link que foi visitado */
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* link selecionado */
+a:active {
+    color: green;
 }
