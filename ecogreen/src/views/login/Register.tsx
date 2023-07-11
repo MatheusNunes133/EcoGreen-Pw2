@@ -1,4 +1,4 @@
-import Button from "../componnents/Button"
+import Button from "../../components/button/Button"
 
 
 export default function RegisterPage() {
