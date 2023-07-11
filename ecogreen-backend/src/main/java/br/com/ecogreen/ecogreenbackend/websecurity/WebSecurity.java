@@ -14,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 
 import java.util.Arrays;
@@ -36,8 +37,7 @@ public class WebSecurity {
 
     private static final String[] AUTH_WHITE_LIST = {
             "/user/login",
-            "/user/register",
-            "/h2-console/**"
+            "/user/register"
     };
 
     @Bean
@@ -45,7 +45,8 @@ public class WebSecurity {
         http
                 .authorizeHttpRequests(
                         auth ->
-                                auth.requestMatchers(AUTH_WHITE_LIST).permitAll()
+                                auth.requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
+                                        .requestMatchers(AUTH_WHITE_LIST).permitAll()
                                         .anyRequest().authenticated()
 
                 )
@@ -58,7 +59,7 @@ public class WebSecurity {
                     return configuration;
                 }))
                 .csrf(crsf -> crsf.disable())
-                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
