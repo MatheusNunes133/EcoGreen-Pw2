@@ -1,16 +1,15 @@
-import React, { ChangeEvent } from 'react';
 import TextField from '@mui/material/TextField';
 
-const Input = () => {
+const Input = (props: { placeholder: string | undefined; width: any; height: any; }) => {
     return (
         <TextField
-            placeholder='Digite aqui'
+            placeholder={props.placeholder}
             sx={{
-                width: 369,
-                height: 62
+                width: props.width,
+                height: props.height
             }}
         />
-    )
-}
+    );
+};
 
 export default Input;
