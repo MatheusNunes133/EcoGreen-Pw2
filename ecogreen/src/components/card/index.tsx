@@ -5,10 +5,11 @@ interface IProps{
   width: any,
   height: any,
   image: string,
-  text: string
+  text: string,
+  widthImage: any
 }
 
-function card({width, height, text, image}: IProps) {
+function card({width, height, text, image, widthImage}: IProps) {
   return (
     <>
         <div style={{
@@ -16,7 +17,7 @@ function card({width, height, text, image}: IProps) {
                 height: height
             }} className='card'>
             <div style={{
-                    width: width,
+                    width: widthImage,
                     height: height,
                     backgroundImage: `url(${image})`
                 }} className='div-imagem'>
