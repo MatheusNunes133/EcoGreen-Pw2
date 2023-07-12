@@ -1,0 +1,23 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+  }
+  
+  .content > .card {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2%;
+    
+  }
+  
+  @media screen and (max-width: 600px) {
+    .content {
+      justify-content: flex-start;
+    }
+    
+    .content > .card {
+      width: 100%;
+    }
+  }
