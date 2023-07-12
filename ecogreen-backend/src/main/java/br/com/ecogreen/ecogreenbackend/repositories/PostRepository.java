@@ -17,4 +17,7 @@ public interface PostRepository extends JpaRepository<PostModel, Long> {
             "from \"tb-post\" post, \"tb-user\" usuario\n" +
             "where usuario.username = :username and usuario.id = post.user_id", nativeQuery = true)
     Page<PostModel> findPostsByToken(@Param(value = "username") String username, Pageable pageable);
+
+    @Query(value = "select * from \"tb-post\"", nativeQuery = true)
+    Page<PostModel> getAllPosts(Pageable pageable);
 }
