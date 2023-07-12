@@ -1,7 +1,7 @@
 import * as React from 'react';
-import "./cardPost.css"
+import "../cardPost/cardPost.css"
 import Button from "../button/index"
-import CriarPostagemModal from '../Modal';
+import EditarPostagemModal from '../ModalEdit/EditPost';
 
 interface IProps{
   width: any,
@@ -31,7 +31,7 @@ function cardPost({width, height, text, image, userName, autenticacao}: IProps) 
         </div>
         {autenticacao ?  
             <div className='div-buttons'>
-              <Button name='Editar' width={80} height={30} textColor='white' backgroundColor='#089C17' />
+              <EditarPostagemModal/>
               <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
     
             </div>
