@@ -23,7 +23,7 @@ const CriarPostagemModal: React.FC = () => {
     return (
         <div>
             <div onClick={handleOpen}>
-                <Button textColor='white' backgroundColor='none' name={'Criar Postagem'} height={50} width={369} />
+                <Button textColor='white' backgroundColor='none' name={'Criar Postagem'} height={50} width={250} />
             </div>
             <Modal open={open} onClose={handleClose}>
                 <Box

@@ -1,6 +1,7 @@
 package br.com.ecogreen.ecogreenbackend.models;
 
 import br.com.ecogreen.ecogreenbackend.enums.EnumRoles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -36,6 +37,10 @@ public class UserModel implements Serializable, UserDetails {
     @Lob
     @Column
     private byte[] perfil;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<PostModel> posts;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

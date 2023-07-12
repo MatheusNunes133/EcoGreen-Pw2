@@ -1,0 +1,53 @@
+.div-card {
+  background-color: white;
+  display: flex;
+  padding-top: 20px;
+  flex-direction: column; /* Alteração */
+  border-radius: 30px;
+  border: 1px solid black;
+  border-bottom: 4px solid black;
+}
+
+.div-perfil {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Opcional: centralizar verticalmente os elementos */
+  height: 20px;
+  margin-top: 5px;
+}
+
+img{
+  width: 50px;
+  height: 50px;
+  margin-left: 40px;
+}
+
+.div-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.div-text{
+  height: 135px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  text-align: left;
+  float: left;
+  color: black;
+  
+}
+
+.div-divider{
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+p{
+  justify-content: right;
+  margin-left: 15px;
+  margin-right: 15px;
+}
