@@ -1,0 +1,57 @@
+.nav {
+  background-color: #DEFFDB;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: 40px;
+}
+
+.navLogo {
+  width: 90px;
+  height: 60px;
+}
+
+.navButton h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.navPerfil{
+    width: 50px;
+    height: 50px;
+
+}
+
+.navButton:not(:first-child) {
+  margin-left: 10px; /* Ajuste o valor da margem conforme necessário */
+}
+
+
+#button-entrar{
+    border: 1px solid #0F38A1;
+    height: 38px;
+    color: black;
+    border-radius: 10px;
+    transition: color 0.3s;
+    margin-right: 10px;
+}
+
+#button-registro{
+    background-color: #2e7d32;
+    height: 38px;
+    color: white;
+    border-radius: 10px;
+    transition: color 0.3s; /* Adicionando transição suave de cor */
+}
+
+
+#button-registro:hover {
+  color: #0F38A1; /* Altere para a cor desejada quando passar o mouse */
+}
+
+#button-entrar:hover{
+    background-color: #646cff75;
+}
+

@@ -6,13 +6,13 @@ import CriarPostagemModal from '../../components/Modal';
 const Postagens = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar autenticacao={true} />
       <div className="buttons">
         <h2>
-          <Button height={50} width={369} name="Todas Postagens" />
+          <Button textColor='white' height={50} width={369} name="Todas Postagens" />
         </h2>
         <h2>
-          <Button height={50} width={369} name="Minhas Postagens" />
+          <Button textColor='white' height={50} width={369} name="Minhas Postagens" />
         </h2>
         <h2>
           <CriarPostagemModal />

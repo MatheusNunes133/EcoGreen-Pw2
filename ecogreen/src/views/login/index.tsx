@@ -17,7 +17,7 @@ export default function loginPage() {
                 <Input placeholder={"Digite seu usuário"} width={369} height={50} /> <br /> <br />
                 <Input placeholder={"Digite sua senha"} width={369} height={50} /> <br /> <br />
 
-                <a href="/Login"><Button height={50} width={369} name="Entrar"/></a>
+                <a href="/Login"><Button textColor="white" height={50} width={369} name="Entrar"/></a>
             </div>
         </>
     )
