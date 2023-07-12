@@ -12,7 +12,7 @@ export default function loginPage() {
                 <h4>Você consegue se <a href="/cadastro">registrar aqui!</a></h4>
         
             </div>
-
+          
             <div className="form-login">
                 <h1 className="title-form">Entrar</h1>
                 <Input placeholder={"Digite seu usuário"} width={369} height={50} /> <br /> <br />
