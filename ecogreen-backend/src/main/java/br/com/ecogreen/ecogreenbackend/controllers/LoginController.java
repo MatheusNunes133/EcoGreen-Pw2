@@ -42,7 +42,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public Map<String, String> register(@RequestBody RegisterDTO registerDTO){
+    public ResponseEntity<Map<String, String>> register(@RequestBody RegisterDTO registerDTO){
         return userService.register(registerDTO);
     }
 }
