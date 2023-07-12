@@ -1,0 +1,17 @@
+.nav {
+    background-color: #DEFFDB;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.navButton {
+    height: 25px;
+}
+
+.navButton h3 {
+    margin: 0;
+    padding: 0;
+}
