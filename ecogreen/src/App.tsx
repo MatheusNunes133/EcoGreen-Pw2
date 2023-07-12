@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Cadastro from './views/cadastro/index'
 import Login from './views/login/index'
 import Home from './views/home/index'
+import Postagens from './views/postagens'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Home />} path='/' />
+          <Route element={<Postagens />} path='Postagens' />
           <Route element={<Cadastro />} path="Cadastro" />
           <Route element={<Login />} path="Login" />
         </Routes>
@@ -19,3 +21,4 @@ function App() {
 }
 
 export default App
+
