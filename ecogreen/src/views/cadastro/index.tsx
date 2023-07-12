@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import Button from '../../components/button/Button';
+import Button from '../../components/button/index';
 import Input from '../../components/input/index';
 import '../cadastro/index.css';
 
@@ -28,7 +28,7 @@ const Cadastro = () => {
                         <Input placeholder="Confirme a senha" width={369} height={62} />
                     </Grid>
                     <Grid item>
-                        <Button name="Cadastre-se" />
+                        <Button width={100} height={100} name="Cadastre-se" />
                     </Grid>
                     <Grid item>
                         <h4>
