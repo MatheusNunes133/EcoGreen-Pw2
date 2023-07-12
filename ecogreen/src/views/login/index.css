@@ -1,0 +1,39 @@
+body {
+    background-color: #ffffff;
+    color: black;
+}
+
+.content-login{
+    float: left;
+    width: 50%;
+}
+
+img{
+    max-width: 100%;
+    height: 50vh;
+    margin-right: 10%;
+}
+
+.form-login{
+    float: right;
+    align-items: center;
+    margin-top: 10%;
+    margin-right: 5%;
+}
+
+h3, h4{
+    text-align: left;
+}
+
+@media (max-width: 640px){
+    .content-login{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    img{
+        height: 17vh;
+        width:50vw;
+    }
+}
+
