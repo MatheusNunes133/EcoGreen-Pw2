@@ -36,8 +36,6 @@ const Cadastro = () => {
         })
 
         if (result.status == 200) {
-            console.log("ghogho")
-            console.log(result.data.success)
             notifySuccess(result.data.success)
         } else {
             notifyError(result.data)
@@ -56,14 +54,14 @@ const Cadastro = () => {
                     <Grid item>
                         <h1>Cadastrar-se</h1>
                     </Grid>
-                    <Grid item className="input-container" onChange={() => getUsername(event)}>
-                        <Input placeholder="Username" width={369} height={62} />
+                    <Grid item className="input-container" >
+                        <Input placeholder="Username" width={369} height={62} onChangeFunction={() => getUsername(event)} />
                     </Grid>
                     <Grid item className="input-container">
-                        <Input placeholder="Nome" width={369} height={62} />
+                        <Input placeholder="Nome" width={369} height={62} onChangeFunction={() => getName(event)} />
                     </Grid>
-                    <Grid item className="input-container">
-                        <Input placeholder="Senha" width={369} height={62} />
+                    <Grid item className="input-container" >
+                        <Input placeholder="Senha" width={369} height={62} onChangeFunction={() => getPassword(event)} />
                     </Grid>
                     {/* <Grid item className="input-container">
                         <Input placeholder="Confirme a senha" width={369} height={62} />
