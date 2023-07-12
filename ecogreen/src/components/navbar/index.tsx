@@ -2,7 +2,6 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './navbar.css';
-import ButtonComponnent from '../../components/button/index'
 
 interface IProps{
     autenticacao: boolean
