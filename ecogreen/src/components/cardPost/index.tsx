@@ -1,16 +1,18 @@
 import * as React from 'react';
 import "./cardPost.css"
 import Button from "../button/index"
+import CriarPostagemModal from '../Modal';
 
 interface IProps{
   width: any,
   height: any,
   image: string,
   text: string,
-  userName: string
+  userName: string,
+  autenticacao: boolean
 }
 
-function cardPost({width, height, text, image, userName}: IProps) {
+function cardPost({width, height, text, image, userName, autenticacao}: IProps) {
   return (
     <>
       <div className='div-card' style={{
@@ -18,7 +20,7 @@ function cardPost({width, height, text, image, userName}: IProps) {
             height: height
       }}>
         <div className='div-perfil'>
-            <img src={image} alt="" />
+            <img className='img-card-post' src={image} alt="" />
             <h3>{userName}</h3>
         </div> 
         <div className='div-divider'>
@@ -27,10 +29,16 @@ function cardPost({width, height, text, image, userName}: IProps) {
         <div className='div-text'>
             <p>{text}</p>
         </div>
-        <div className='div-buttons'>
-            <Button name='Editar' width={80} height={30} textColor='white' backgroundColor='#089C17' />
-            <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
-        </div>
+        {autenticacao ?  
+            <div className='div-buttons'>
+              <Button name='Editar' width={80} height={30} textColor='white' backgroundColor='#089C17' />
+              <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
+    
+            </div>
+        : 
+          <div></div>
+        }
+
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../../components/button/index';
 import { Modal, TextField, Box, Typography } from '@mui/material';
+import './index.css'
 
 const CriarPostagemModal: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -53,10 +54,13 @@ const CriarPostagemModal: React.FC = () => {
                             value={conteudo}
                             onChange={(event) => setConteudo(event.target.value)}
                         />
-                        <div onClick={handleClose}>
-                            <Button textColor='white' backgroundColor='none' name={'Fechar'} height={50} width={100} />
+                        <div className='buttons-modal'>
+                            <div onClick={handleClose}>
+                                <Button textColor='white' backgroundColor='#9C1A08' name={'Fechar'} height={40} width={100} />
+                            </div>
+                            <Button textColor='white' name={'Publicar'} height={40} width={100} />
                         </div>
-                        <Button textColor='white' backgroundColor='none' name={'Publicar'} height={50} width={100} />
+
                     </form>
                 </Box>
             </Modal>
