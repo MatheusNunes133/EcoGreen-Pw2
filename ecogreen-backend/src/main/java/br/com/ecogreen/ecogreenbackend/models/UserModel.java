@@ -33,6 +33,8 @@ public class UserModel implements Serializable, UserDetails {
     @Enumerated(EnumType.STRING)
     private List<EnumRoles> roles;
 
+    @Lob
+    @Column
     private byte[] perfil;
 
     @Override
