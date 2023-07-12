@@ -1,0 +1,14 @@
+.buttons-postt {
+    margin-top: 10px;
+    display: flex;
+    gap: 40px;
+    padding-bottom: 20px;
+
+}
+
+.div-card{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
