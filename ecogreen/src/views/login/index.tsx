@@ -2,7 +2,6 @@ import Button from "../../components/button/index"
 import "../login/index.css"
 import Input from "../../components/input/index"
 
-
 export default function loginPage() {
     return (
         <>
@@ -18,9 +17,8 @@ export default function loginPage() {
                 <Input placeholder={"Digite seu usuário"} width={369} height={50} /> <br /> <br />
                 <Input placeholder={"Digite sua senha"} width={369} height={50} /> <br /> <br />
 
-                <Button height={50} width={369} name="Entrar"/>
+                <a href="/Login"><Button height={50} width={369} name="Entrar"/></a>
             </div>
-
         </>
     )
 }
