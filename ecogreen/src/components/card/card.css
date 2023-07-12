@@ -1,0 +1,27 @@
+.card{
+  background-color: #077412;
+  margin-top: 200px;
+  display: inline-flex;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.div-imagem{
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+ 
+
+}
+
+.div-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  text-align: left;
+  float: left;
+  color: white;
+}
+
