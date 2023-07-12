@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "user-tb")
+@Table(name = "tb-user")
 public class UserModel implements Serializable, UserDetails {
 
     private static final long serialVersionUID = 1L;
@@ -30,7 +30,12 @@ public class UserModel implements Serializable, UserDetails {
     @Column(nullable = false)
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private List<EnumRoles> roles;
+
+    @Lob
+    @Column
+    private byte[] perfil;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -102,5 +107,13 @@ public class UserModel implements Serializable, UserDetails {
 
     public void setRoles(List<EnumRoles> roles) {
         this.roles = roles;
+    }
+
+    public byte[] getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(byte[] perfil) {
+        this.perfil = perfil;
     }
 }

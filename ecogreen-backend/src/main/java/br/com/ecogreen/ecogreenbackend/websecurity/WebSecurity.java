@@ -55,7 +55,6 @@ public class WebSecurity {
                     configuration.setAllowedOrigins(Arrays.asList("*"));
                     configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
                     configuration.setAllowedHeaders(Arrays.asList("*"));
-                    configuration.setAllowCredentials(true);
                     return configuration;
                 }))
                 .csrf(crsf -> crsf.disable())
