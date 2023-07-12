@@ -6,6 +6,8 @@ import br.com.ecogreen.ecogreenbackend.enums.EnumRoles;
 import br.com.ecogreen.ecogreenbackend.models.UserModel;
 import br.com.ecogreen.ecogreenbackend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,7 +26,7 @@ public class UserService {
     @Autowired
     private ExtractUsernameTokenJWT extractUsername;
 
-    public Map<String, String> register(RegisterDTO registerDTO){
+    public ResponseEntity<Map<String, String>> register(RegisterDTO registerDTO){
         try {
             UserModel newUser = new UserModel();
             newUser.setName(registerDTO.getName());
@@ -32,13 +34,13 @@ public class UserService {
             newUser.setPassword(new BCryptPasswordEncoder().encode(registerDTO.getPassword()));
             newUser.setRoles(Collections.singletonList(EnumRoles.ROLE_USER));
             repository.save(newUser);
-            return Map.of("success", "Usuário criado com sucesso!");
+            return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(Map.of("success", "Usuário criado com sucesso!"));
         }catch (Exception exception){
             throw new RuntimeException(exception);
         }
     }
 
-    public Map<String, String> updateUser(String token, UserModel newUser, MultipartFile file){
+    public ResponseEntity<Map<String, String>> updateUser(String token, UserModel newUser, MultipartFile file){
         try {
             Optional<UserModel> foundUser = repository.findByUsername(extractUsername.extractUsernameToken(token));
 
@@ -52,9 +54,9 @@ public class UserService {
                     foundUser.get().setPerfil(null);
                 }
                 repository.save(foundUser.get());
-                return Map.of("success", "Usuário atualizado com sucesso!");
+                return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(Map.of("success", "Usuário atualizado com sucesso!"));
             }else{
-                return Map.of("error","Erro ao atualizar usuário!");
+                return ResponseEntity.status(HttpStatusCode.valueOf(400)).body(Map.of("error", "Erro ao atualizar usuário!"));
             }
 
         }catch (IOException exception){
