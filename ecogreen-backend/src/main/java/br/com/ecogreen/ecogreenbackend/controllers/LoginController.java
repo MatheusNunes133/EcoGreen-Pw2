@@ -8,6 +8,7 @@ import br.com.ecogreen.ecogreenbackend.websecurity.UserDetailsServiceImpl;
 import br.com.ecogreen.ecogreenbackend.websecurity.jwt.JWTService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +38,7 @@ public class LoginController {
         return Optional.ofNullable(foundUser)
                 .filter(u -> new BCryptPasswordEncoder().matches(loginDTO.getPassword(), u.getPassword()))
                 .map(jwtService::generateToken)
-                .map(token -> ResponseEntity.ok().body(Map.of("token", token )))
+                .map(token -> ResponseEntity.status(HttpStatusCode.valueOf(200)).body(Map.of("token", token )))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Usuário não encontrado ou credenciais inválidas")));
     }
 
