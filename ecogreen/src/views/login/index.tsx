@@ -9,7 +9,7 @@ export default function loginPage() {
             <div className="content-login">
                 <img src="/ecogreen.png" alt="logo ecogreen" />
                 <h3>Entre para construir um melhor ambiente. Se você não tem uma conta cadastre-se</h3>
-                <h4>Você consegue se <a href="">registrar aqui!</a></h4>
+                <h4>Você consegue se <a href="/cadastro">registrar aqui!</a></h4>
         
             </div>
 

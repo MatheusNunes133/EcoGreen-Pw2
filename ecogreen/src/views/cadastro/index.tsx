@@ -28,7 +28,7 @@ const Cadastro = () => {
                         <Input placeholder="Confirme a senha" width={369} height={62} />
                     </Grid>
                     <Grid item>
-                        <Button width={100} height={100} name="Cadastre-se" />
+                        <Button width={140} height={50} name="Cadastre-se" />
                     </Grid>
                     <Grid item>
                         <h4>
