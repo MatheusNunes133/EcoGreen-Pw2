@@ -5,7 +5,7 @@ import "./home.css"
 const Home = () => {
     return (
         <div>
-            <Navbar/>
+            <Navbar autenticacao={false} />
             <div className="content">
                 <Card widthImage={900} width={400} height={180} text="Fala-se tanto da necessidade de deixar um planeta melhor para os nossos filhos e esquece-se da urgência de deixarmos filhos melhores para o nosso planeta." image="/1.jpg" />
                 <Card widthImage={1050} width={400} height={180} text="O laço essencial que nos une é que todos habitamos este pequeno planeta. Todos respiramos o mesmo ar. Todos nos preocupamos com o futuro dos nossos filhos. E todos" image="/2.jpg" />

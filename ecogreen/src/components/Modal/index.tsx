@@ -23,7 +23,7 @@ const CriarPostagemModal: React.FC = () => {
     return (
         <div>
             <div onClick={handleOpen}>
-                <Button name={'Criar Postagem'} height={50} width={369} />
+                <Button textColor='white' backgroundColor='none' name={'Criar Postagem'} height={50} width={369} />
             </div>
             <Modal open={open} onClose={handleClose}>
                 <Box
@@ -54,9 +54,9 @@ const CriarPostagemModal: React.FC = () => {
                             onChange={(event) => setConteudo(event.target.value)}
                         />
                         <div onClick={handleClose}>
-                            <Button name={'Fechar'} height={50} width={100} />
+                            <Button textColor='white' backgroundColor='none' name={'Fechar'} height={50} width={100} />
                         </div>
-                        <Button name={'Publicar'} height={50} width={100} />
+                        <Button textColor='white' backgroundColor='none' name={'Publicar'} height={50} width={100} />
                     </form>
                 </Box>
             </Modal>
