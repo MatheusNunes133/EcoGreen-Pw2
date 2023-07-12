@@ -3,7 +3,8 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Cadastro from './views/cadastro/index'
 import Login from './views/login/index'
 import Home from './views/home/index'
-import Postagens from './views/postagens'
+import TodasPostagens from './views/todasPostagens/index'
+import Postagens from './views/postagens/index'
 import Perfil from './views/perfil'
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Home />} path='/' />
-          <Route element={<Postagens />} path='Postagens' />
+          <Route element={<TodasPostagens />} path='todaspostagens' />
+          <Route element={<Postagens />} path='postagens' />
           <Route element={<Cadastro />} path="Cadastro" />
           <Route element={<Login />} path="Login" />
           <Route element={<Perfil />} path="Perfil" />

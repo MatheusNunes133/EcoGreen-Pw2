@@ -23,7 +23,7 @@ const Navbar: React.FC<IProps> = ({autenticacao}) => {
                         <Button className="navButton" color="inherit" component={Link} to="/">
                             <h3>Home</h3>
                         </Button>
-                        <Button className="navButton" color="inherit" component={Link} to="/postagens">
+                        <Button className="navButton" color="inherit" component={Link} to="/todaspostagens">
                             <h3>Postagens</h3>
                         </Button>
                     </Grid>

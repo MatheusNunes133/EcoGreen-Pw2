@@ -10,12 +10,12 @@ const Postagens = () => {
     <div>
       <Navbar autenticacao={true} />
       <div className="buttons-postt">
-          <Button textColor='white' height={50} width={250} name="Todas Postagens" />
-          <Button textColor='white' height={50} width={250} name="Minhas Postagens" />
+          <a href="/todaspostagens"><Button textColor='white' height={50} width={250} name="Todas Postagens" /></a>
+          <a href="/postagens"><Button textColor='white' height={50} width={250} name="Minhas Postagens" /></a>
           <CriarPostagemModal />
       </div>
       <br />
-        <CardPost width={400} height={250} image='/perfil.svg' text='conteudo da sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssspostagem' userName='User Name' />
+        <CardPost autenticacao={true} width={400} height={250} image='/perfil.svg' text='conteudo da sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssspostagem' userName='User Name' />
 
     </div>
   );
