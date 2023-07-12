@@ -7,6 +7,7 @@ import br.com.ecogreen.ecogreenbackend.repositories.PostRepository;
 import br.com.ecogreen.ecogreenbackend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -84,5 +85,9 @@ public class PostService {
         }catch (Exception e){
             throw new RuntimeException(e);
         }
+    }
+
+    public Page<PostModel> getAllPosts(PageRequest page){
+        return repository.getAllPosts(page);
     }
 }

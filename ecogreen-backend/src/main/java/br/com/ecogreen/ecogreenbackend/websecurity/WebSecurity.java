@@ -37,7 +37,8 @@ public class WebSecurity {
 
     private static final String[] AUTH_WHITE_LIST = {
             "/user/login",
-            "/user/register"
+            "/user/register",
+            "/post/get-all-posts"
     };
 
     @Bean

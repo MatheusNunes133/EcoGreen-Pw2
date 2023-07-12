@@ -51,4 +51,10 @@ public class PostController {
                                                           @PathVariable Long id){
         return service.deletePost(token, id);
     }
+
+    @GetMapping("/get-all-posts")
+    public Page<PostModel> getAllPosts(@RequestParam(defaultValue = "0") int page,
+                                       @RequestParam(defaultValue = "10") int size){
+        return service.getAllPosts(PageRequest.of(page, size));
+    }
 }
