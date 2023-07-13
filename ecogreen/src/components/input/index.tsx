@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 
-const Input = (props: { placeholder: string | undefined; width: any; height: any; }) => {
+const Input = (props: { placeholder: string | undefined; width: any; height: any; onChangeFunction?: any }) => {
     return (
         <TextField
             placeholder={props.placeholder}
@@ -8,6 +8,7 @@ const Input = (props: { placeholder: string | undefined; width: any; height: any
                 width: props.width,
                 height: props.height
             }}
+            onChange={() => props.onChangeFunction()}
         />
     );
 };
