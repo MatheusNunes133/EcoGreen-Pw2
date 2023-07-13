@@ -7,7 +7,7 @@ import "./post.css"
 import { api } from '../../service/Api';
 
 const Postagens = () => {
-  const [AllPosts, setAllPosts] = useState([])
+  const [AllPosts, setAllPosts] = useState<any[]>([])
 
   useEffect(() => {
     (async () => {
@@ -34,6 +34,7 @@ const Postagens = () => {
         AllPosts.map(item => {
           return (
             <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} autenticacao={false} />
+            
           )
         })
       }

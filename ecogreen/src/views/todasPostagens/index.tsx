@@ -7,7 +7,7 @@ import "../postagens/post.css";
 import { api } from "../../service/Api";
 
 const TodasPostagens = () => {
-  const [AllPosts, setAllPosts] = useState([])
+  const [AllPosts, setAllPosts] = useState<any[]>([])
 
   useEffect(() => {
     (async () => {
@@ -30,13 +30,16 @@ const TodasPostagens = () => {
         <CriarPostagemModal />
       </div>
       <br />
-      {
+      <div>
+          {
         AllPosts.map(item => {
           return (
             <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} autenticacao={false} />
           )
         })
       }
+      </div>
+    
 
     </div>
   );
