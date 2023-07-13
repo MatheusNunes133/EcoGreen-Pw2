@@ -3,7 +3,7 @@ import "../cardPost/cardPost.css"
 import Button from "../button/index"
 import EditarPostagemModal from '../ModalEdit/EditPost';
 
-interface IProps{
+interface IProps {
   width: any,
   height: any,
   image: string,
@@ -12,30 +12,30 @@ interface IProps{
   autenticacao: boolean
 }
 
-function cardPost({width, height, text, image, userName, autenticacao}: IProps) {
+function cardPost({ width, height, text, image, userName, autenticacao }: IProps) {
   return (
     <>
       <div className='div-card' style={{
-            width: width,
-            height: height
+        width: width,
+        height: height
       }}>
         <div className='div-perfil'>
-            <img className='img-card-post' src={image} alt="" />
-            <h3>{userName}</h3>
-        </div> 
+          <img className='img-card-post' src={image == null || undefined ? "/vite.svg" : `data:image/jpeg;base64,${image}`} alt="" />
+          <h3>{userName}</h3>
+        </div>
         <div className='div-divider'>
-         <hr />
+          <hr />
         </div>
         <div className='div-text'>
-            <p>{text}</p>
+          <p>{text}</p>
         </div>
-        {autenticacao ?  
-            <div className='div-buttons'>
-              <EditarPostagemModal/>
-              <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
-    
-            </div>
-        : 
+        {autenticacao ?
+          <div className='div-buttons'>
+            <EditarPostagemModal />
+            <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
+
+          </div>
+          :
           <div></div>
         }
 

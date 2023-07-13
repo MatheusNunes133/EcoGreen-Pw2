@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar";
 import Button from "../../components/button/index";
 import CriarPostagemModal from "../../components/Modal";
@@ -31,15 +31,17 @@ const TodasPostagens = () => {
       </div>
       <br />
       <div>
+        <div className="containerPosts">
           {
-        AllPosts.map(item => {
-          return (
-            <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} autenticacao={false} />
-          )
-        })
-      }
+            AllPosts.map(item => {
+              return (
+                <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} autenticacao={false} />
+              )
+            })
+          }
+        </div>
       </div>
-    
+
 
     </div>
   );
