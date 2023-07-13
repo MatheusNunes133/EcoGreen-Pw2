@@ -36,6 +36,11 @@ function cardPost({ width, height, text, title, image, userName, autenticacao, i
         Authorization: `Bearer ${token}`
       }
     })
+
+    setTimeout(() => {
+      window.location.reload();
+      navigate("/");
+    }, 200);
   }
 
   return (
@@ -58,7 +63,7 @@ function cardPost({ width, height, text, title, image, userName, autenticacao, i
         {autenticacao ?
           <div className='div-buttons'>
             {/*<EditarPostagemModal />*/}
-            <div>
+            <div className=''>
               <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' login={() => deletep(id)} />
             </div>
           </div>

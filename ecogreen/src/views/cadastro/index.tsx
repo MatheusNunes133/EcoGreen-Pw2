@@ -9,8 +9,7 @@ import { useState } from "react"
 import { Notify, notifyError, notifySuccess } from "../../components/NotiFy"
 
 const Cadastro = () => {
-
-
+    
     const [username, setUsername] = useState("")
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
