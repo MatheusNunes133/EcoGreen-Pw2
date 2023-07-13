@@ -13,7 +13,8 @@ interface IProps {
   text: string,
   userName: string,
   autenticacao: boolean,
-  id: string
+  id: string,
+  title: string
 }
 
 function handleDelete() {
@@ -26,7 +27,7 @@ function handleDelete() {
     });
 }
 
-function cardPost({ width, height, text, image, userName, autenticacao, id }: IProps) {
+function cardPost({ width, height, text, title, image, userName, autenticacao, id }: IProps) {
 
   async function deletep(id: any) {
     const token: string | null = JSON.parse(localStorage.getItem("tokenJWT") || "null");
@@ -47,6 +48,7 @@ function cardPost({ width, height, text, image, userName, autenticacao, id }: IP
           <img className='img-card-post' src={image == null || undefined ? "/vite.svg" : `data:image/jpeg;base64,${image}`} alt="" />
           <h3>{userName}</h3>
         </div>
+        <h3>{title}</h3>
         <div className='div-divider'>
           <hr />
         </div>

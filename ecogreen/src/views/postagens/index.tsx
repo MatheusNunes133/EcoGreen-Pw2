@@ -35,7 +35,7 @@ const Postagens = () => {
         {
           AllPosts.map(item => {
             return (
-              <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} id={item.id} autenticacao={true} />
+              <CardPost width={400} height={250} image={item.user.perfil} title={item.title} text={item.message} userName={item.user.name} id={item.id} autenticacao={true} />
 
             )
           })
