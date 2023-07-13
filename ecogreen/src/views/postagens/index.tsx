@@ -7,7 +7,7 @@ import "./post.css"
 import { api } from '../../service/Api';
 
 const Postagens = () => {
-  const [AllPosts, setAllPosts] = useState([])
+  const [AllPosts, setAllPosts] = useState<any[]>([])
 
   useEffect(() => {
     (async () => {
