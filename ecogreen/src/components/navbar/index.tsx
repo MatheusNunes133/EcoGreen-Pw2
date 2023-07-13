@@ -35,20 +35,19 @@ const Navbar: React.FC = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
+            
             <MenuItem onClick={handleMenuClose} component={Link} to="/">
                 Home
             </MenuItem>
-            {autenticacao ? (
-                 <MenuItem onClick={handleMenuClose} component={Link} to="/postagens">
+            {autenticacao ? (  <MenuItem onClick={handleMenuClose} component={Link} to="/postagens">
                      Postagens
-                </MenuItem>)
-            : (
-                <MenuItem onClick={handleMenuClose} component={Link} to="/">
+                </MenuItem>) : (<MenuItem onClick={handleMenuClose} component={Link} to="/">
                      Postagens
-                </MenuItem>
-            )}
+                </MenuItem>)}
+               
+             
         
-            {!autenticacao && (
+            {!autenticacao ?? (
                 <div>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/login">
                         Entrar
@@ -60,6 +59,14 @@ const Navbar: React.FC = () => {
             )}
         </Menu>
     );
+
+    const logout = () =>{
+        localStorage.removeItem("tokenJWT");
+        setTimeout(() => {
+            window.location.reload();
+            navigator("/");
+          }, 1000);
+    }
 
     return (
         <AppBar>
@@ -102,22 +109,23 @@ const Navbar: React.FC = () => {
                     <Grid item>
                         <Hidden mdUp>
                             {/* Exibir o ícone do menu apenas em tamanhos de tela menores */}
+                            
                             <IconButton color="inherit" onClick={handleMenuOpen}>
                                 <MenuIcon />
                             </IconButton>
                         </Hidden>
                         {autenticacao ? (
-                            <div>
-                            <a href="/perfil">
-                                <IconButton color="inherit">
-                                    <img className="navPerfil" src="/perfil.svg" alt="perfil" />
-                                </IconButton>
-                            </a>
-                            <a href="/perfil">
-                                
-                            </a>
+                            <div className='div-logout'>
+                                <a href="/">
+                                    <Buttonn login={() => logout()} name={'SAIR'} width={50} height={30} textColor={'white'} backgroundColor='red' />
+                                </a>
+                                <a href="/perfil">
+                                    <IconButton color="inherit">
+                                        <img className="navPerfil" src="/perfil.svg" alt="perfil" />
+                                    </IconButton>
+                                </a>
                             </div>
-                          
+                
                            
                            
                         ) : (
