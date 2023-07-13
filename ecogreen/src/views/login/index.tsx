@@ -30,7 +30,12 @@ export default function loginPage() {
         if (result.status == 200) {
             localStorage.setItem("tokenJWT", JSON.stringify(result.data.token))
             notifySuccess("Login realizado!")
-            setTimeout(() => { navigate("/postagens") }, 1000)
+            setTimeout(() => { navigate("/") }, 1000)
+            setTimeout(() => {
+                window.location.reload();
+                navigate("/");
+              }, 1000);
+
         } else {
             notifyError(result.data)
         }
