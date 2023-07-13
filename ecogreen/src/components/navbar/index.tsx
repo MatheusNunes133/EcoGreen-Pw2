@@ -3,12 +3,17 @@ import { AppBar, Toolbar, Typography, Button, Grid, IconButton, Hidden, Menu, Me
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import './navbar.css';
+import Buttonn from '../../components/button/index'
 
-interface IProps {
-    autenticacao: boolean;
-}
+let autenticacao;
 
-const Navbar: React.FC<IProps> = ({ autenticacao }) => {
+const token = JSON.parse(localStorage.getItem("tokenJWT") || "null");
+token ? autenticacao = true : autenticacao = false
+
+
+
+
+const Navbar: React.FC = () => {
     const [menuAnchorEl, setMenuAnchorEl] = React.useState<null | HTMLElement>(null);
     const isMenuOpen = Boolean(menuAnchorEl);
 
@@ -33,9 +38,16 @@ const Navbar: React.FC<IProps> = ({ autenticacao }) => {
             <MenuItem onClick={handleMenuClose} component={Link} to="/">
                 Home
             </MenuItem>
-            <MenuItem onClick={handleMenuClose} component={Link} to="/postagens">
-                Postagens
-            </MenuItem>
+            {autenticacao ? (
+                 <MenuItem onClick={handleMenuClose} component={Link} to="/postagens">
+                     Postagens
+                </MenuItem>)
+            : (
+                <MenuItem onClick={handleMenuClose} component={Link} to="/">
+                     Postagens
+                </MenuItem>
+            )}
+        
             {!autenticacao && (
                 <div>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/login">
@@ -64,16 +76,26 @@ const Navbar: React.FC<IProps> = ({ autenticacao }) => {
                             </Grid>
                             <Hidden mdDown>
                                 {/* Exibir os botões na barra de navegação apenas em tamanhos de tela maiores */}
+        
                                 <Grid item>
                                     <Button className="navButton" color="inherit" component={Link} to="/">
                                         <h3>Home</h3>
                                     </Button>
                                 </Grid>
+                                { autenticacao ? ( 
                                 <Grid item>
                                     <Button className="navButton" color="inherit" component={Link} to="/postagens">
                                         <h3>Postagens</h3>
                                     </Button>
-                                </Grid>
+                                </Grid>) : 
+                                (<Grid item>
+                                    <Button className="navButton" color="inherit" component={Link} to="/cadastro">
+                                        <h3>Postagens</h3>
+                                    </Button>
+                                </Grid>)
+
+                                }
+                               
                             </Hidden>
                         </Grid>
                     </Grid>
@@ -85,11 +107,19 @@ const Navbar: React.FC<IProps> = ({ autenticacao }) => {
                             </IconButton>
                         </Hidden>
                         {autenticacao ? (
+                            <div>
                             <a href="/perfil">
                                 <IconButton color="inherit">
                                     <img className="navPerfil" src="/perfil.svg" alt="perfil" />
                                 </IconButton>
                             </a>
+                            <a href="/perfil">
+                                
+                            </a>
+                            </div>
+                          
+                           
+                           
                         ) : (
                             <Hidden mdDown>
                                 {/* Exibir botões de login e registro apenas em tamanhos de tela maiores */}
