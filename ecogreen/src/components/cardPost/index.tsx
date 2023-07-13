@@ -15,18 +15,6 @@ interface IProps {
 }
 
 function cardPost({ width, height, text, image, userName, autenticacao }: IProps) {
-
-  function handleDelete() {
-    axios.delete('/post/delete-post/')
-      .then(response => {
-        notifySuccess("Postagem deletada!")
-      })
-      .catch(error => {
-        notifyError("Erro ao excluir postagem")
-      });
-  }
-
-
   return (
     <>
       <div className='div-card' style={{
@@ -34,7 +22,7 @@ function cardPost({ width, height, text, image, userName, autenticacao }: IProps
         height: height
       }}>
         <div className='div-perfil'>
-          <img className='img-card-post' src={image} alt="" />
+          <img className='img-card-post' src={image == null || undefined ? "/vite.svg" : `data:image/jpeg;base64,${image}`} alt="" />
           <h3>{userName}</h3>
         </div>
         <div className='div-divider'>
@@ -45,10 +33,9 @@ function cardPost({ width, height, text, image, userName, autenticacao }: IProps
         </div>
         {autenticacao ?
           <div className='div-buttons'>
-          {/* <EditarPostagemModal /> */}
-            <div onClick={handleDelete}>
-              <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
-            </div>
+            <EditarPostagemModal />
+            <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
+
           </div>
           :
           <div></div>
