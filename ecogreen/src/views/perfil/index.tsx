@@ -6,6 +6,7 @@ import Navbar from '../../components/navbar';
 import AuthAvatar from '../../components/avatar';
 import { useEffect, useState } from 'react';
 import { api } from "../../service/Api"
+import { Notify, notifyError, notifySuccess } from "../../components/NotiFy"
 
 const Perfil = () => {
 
@@ -23,8 +24,7 @@ const Perfil = () => {
             const token: string | null = JSON.parse(localStorage.getItem("tokenJWT") || "null");
             let result = await api.get("/user/perfil", {
                 headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`
                 }
             })
 
@@ -33,6 +33,7 @@ const Perfil = () => {
                 setName(result.data.name)
                 setPerfil(result.data.imageBase64)
             }
+            console.log(result.data)
         })()
     }, [])
 
@@ -42,20 +43,24 @@ const Perfil = () => {
         formData.append("name", newName);
         formData.append("password", newPassword);
         formData.append("image", newPerfil)
-        console.log(data)
         const token: string | null = JSON.parse(localStorage.getItem("tokenJWT") || "null");
-        const response = await api.put("user/update-user", formData, {
+        const response = await api.put("/user/update-user", formData, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
             },
         });
-
+        if (response.status == 200) {
+            notifySuccess(response.data)
+        } else {
+            notifyError(response.data)
+        }
     };
 
 
     return (
         <div>
+            <Notify />
             <Navbar autenticacao={false} />
             <div className="conteudo">
                 <Grid container direction="column" alignItems="center" spacing={1}>
