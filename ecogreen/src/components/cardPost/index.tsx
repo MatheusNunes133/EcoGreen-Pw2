@@ -4,6 +4,7 @@ import Button from "../button/index"
 import EditarPostagemModal from '../ModalEdit/EditPost';
 import axios from 'axios';
 import { notifyError, notifySuccess } from '../NotiFy';
+import { api } from '../../service/Api';
 
 interface IProps {
   width: any,
@@ -11,10 +12,31 @@ interface IProps {
   image: string,
   text: string,
   userName: string,
-  autenticacao: boolean
+  autenticacao: boolean,
+  id: string
 }
 
-function cardPost({ width, height, text, image, userName, autenticacao }: IProps) {
+function handleDelete() {
+  axios.delete('/post/delete-post/')
+    .then(response => {
+      notifySuccess("Postagem deletada!")
+    })
+    .catch(error => {
+      notifyError("Erro ao excluir postagem")
+    });
+}
+
+function cardPost({ width, height, text, image, userName, autenticacao, id }: IProps) {
+
+  async function deletep(id: any) {
+    const token: string | null = JSON.parse(localStorage.getItem("tokenJWT") || "null");
+    let result = await api.delete(`/post/delete-post/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
+
   return (
     <>
       <div className='div-card' style={{
@@ -33,9 +55,10 @@ function cardPost({ width, height, text, image, userName, autenticacao }: IProps
         </div>
         {autenticacao ?
           <div className='div-buttons'>
-            <EditarPostagemModal />
-            <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' />
-
+            {/*<EditarPostagemModal />*/}
+            <div>
+              <Button name='Excluir' width={80} height={30} textColor='white' backgroundColor='#9C1A08' login={() => deletep(id)} />
+            </div>
           </div>
           :
           <div></div>
