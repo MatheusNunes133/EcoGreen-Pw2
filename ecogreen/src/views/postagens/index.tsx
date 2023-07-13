@@ -18,6 +18,7 @@ const Postagens = () => {
         }
       })
       setAllPosts(posts.data.content)
+      console.log(posts.data.content)
     })()
   }, [])
 
@@ -30,14 +31,16 @@ const Postagens = () => {
         <CriarPostagemModal />
       </div>
       <br />
-      {
-        AllPosts.map(item => {
-          return (
-            <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} autenticacao={false} />
-            
-          )
-        })
-      }
+      <div className="containerPosts">
+        {
+          AllPosts.map(item => {
+            return (
+              <CardPost width={400} height={250} image={item.user.perfil} text={item.message} userName={item.user.name} autenticacao={false} />
+
+            )
+          })
+        }
+      </div>
 
     </div>
   );

@@ -15,15 +15,16 @@ const AvatarImage: React.FC<AvatarProps> = ({ src, alt, size = 70 }) => {
 
 interface Props {
   autenticacao: boolean;
+  image?: string
 }
 
-const AuthAvatar: React.FC<Props> = ({ autenticacao }) => {
+const AuthAvatar: React.FC<Props> = ({ autenticacao, image }) => {
   return (
     <>
       {autenticacao ? (
         <a href="/perfil">
           <Grid item container justifyContent="flex-end">
-            <img className='navPerfil' src="/vite.svg" />
+            <img className='navPerfil' src={image == undefined || null ? "/vite.svg" : `data:image/jpeg;base64,${image}`} />
           </Grid>
         </a>
       ) : (
