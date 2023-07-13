@@ -10,7 +10,7 @@ const Input = (props: { value?: string, placeholder: string | undefined; width: 
             }}
             onChange={() => props.onChangeFunction()}
             type={props.inputType}
-            value={props.value}
+            defaultValue={props.value}
         />
     );
 };
