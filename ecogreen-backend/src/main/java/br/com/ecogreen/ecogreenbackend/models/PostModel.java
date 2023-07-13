@@ -23,7 +23,6 @@ public class PostModel implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @JsonIgnore
     private UserModel user;
 
     public Long getId() {
